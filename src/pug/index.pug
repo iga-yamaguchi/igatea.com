@@ -5,7 +5,14 @@ html
     body
         h1 igatea.com
         ul.main-link-list
-            each val in ['Github', 'Blog', 'Qiita', 'Products', 'Career', 'Technical']
+            mixin h2List(url, linkName)
                 li
                     h2
-                        a(href="example.com")=val
+                        a(href=url) #{linkName}
+
+            +h2List('http://example.com', 'Github')
+            +h2List('http://example.com', 'Blog')
+            +h2List('http://example.com', 'Qiita')
+            +h2List('http://example.com', 'Products')
+            +h2List('http://example.com', 'Career')
+            +h2List('http://example.com', 'Technical')
