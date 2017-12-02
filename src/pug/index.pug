@@ -1,0 +1,11 @@
+html
+    head
+        title igatea.com
+        link(href="../scss/style.css", rel="stylesheet")
+    body
+        h1 igatea.com
+        ul.main-link-list
+            each val in ['Github', 'Blog', 'Qiita', 'Products', 'Career', 'Technical']
+                li
+                    h2
+                        a(href="example.com")=val
