@@ -15,7 +15,8 @@ elements.forEach((element, index) => {
         }
 
         const target = event.target;
-        const width = target.getBoundingClientRect().x;
+        const leftMargin = target.getBoundingClientRect().left;
+        const topMargin = target.getBoundingClientRect().top + target.offsetHeight/2;
         const color = target.getAttribute('data-color') || '#5f5f5f';
         const colorProperty = {
             value: color,
@@ -26,18 +27,22 @@ elements.forEach((element, index) => {
             targets: target,
             translateX: [
                 {
-                    value: window.innerWidth - width - target.offsetWidth - 5,
+                    value: window.innerWidth/2 - leftMargin - target.offsetWidth/ 2,
                     duration: 500,
                     easing,
                 },
             ],
+            translateY: {
+                value: window.innerHeight/2 - topMargin,
+                delay: 1700,
+            },
             rotate: {
-                value: '0.75turn',
+                value: '1turn',
                 delay: 700,
                 easing,
             },
             scale: {
-                value: 20,
+                value: 8,
                 delay: 1700
             },
             direction: 'alternative',
@@ -55,10 +60,6 @@ elements.forEach((element, index) => {
                     }
                 });
             },
-            complete(animeObj) {
-                const element = animeObj.animatables[0].target;
-                element.style.display = 'none';
-            }
         });
     };
 });
