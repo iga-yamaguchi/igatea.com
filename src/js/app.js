@@ -1,10 +1,17 @@
 import anime from 'animejs';
 
 const elements = document.querySelectorAll('ul.main-link-list a');
+const animated = [];
 
-elements.forEach((element) => {
+elements.forEach((element, index) => {
+    animated[index] = false;
+
     element.onclick = (event) => {
-        event.preventDefault();
+
+        if (!animated[index]) {
+            event.preventDefault();
+            animated[index] = true;
+        }
 
         const target = event.target;
         const width = target.getBoundingClientRect().x;
@@ -17,7 +24,7 @@ elements.forEach((element) => {
                     duration: 500,
                 },
             ],
-            easing: [.91,-0.67,.33,1.5],
+            easing: [.91, -0.67, .33, 1.5],
             rotate: {
                 value: '0.75turn',
                 delay: 700
@@ -29,6 +36,9 @@ elements.forEach((element) => {
             backgroundColor: {
                 value: '#5f5f5f',
                 delay: 1300,
+            },
+            complete() {
+                event.target.click();
             },
         });
     };
