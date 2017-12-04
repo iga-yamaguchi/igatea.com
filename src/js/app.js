@@ -19,7 +19,6 @@ elements.forEach((element, index) => {
         const color = target.getAttribute('data-color') || '#5f5f5f';
         const colorProperty = {
             value: color,
-            // value: '#5f5f5f',
             delay: 1700,
         };
 
@@ -43,22 +42,20 @@ elements.forEach((element, index) => {
             },
             direction: 'alternative',
             color: colorProperty,
-            // backgroundColor: colorProperty,
             begin() {
                 document.getElementById('over')
                     .style
                     .display = 'block';
                 anime({
                     targets: '#over',
-                    // display: 'block'
                     backgroundColor: color,
                     delay: 1800,
+                    complete() {
+                        event.target.click();
+                    }
                 });
-                // event.target.click();
             },
             complete(animeObj) {
-                console.log(animeObj);
-                console.log(animeObj.animatables[0].target);
                 const element = animeObj.animatables[0].target;
                 element.style.display = 'none';
             }
