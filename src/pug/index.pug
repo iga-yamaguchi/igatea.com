@@ -5,14 +5,18 @@ html
     body
         h1 igatea.com
         ul.main-link-list
-            mixin h2List(url, linkName)
+            mixin h2List(url, linkName, id)
                 li
                     h2
-                        a(href=url) #{linkName}
+                        a(href=url, id=id, class='main-link') #{linkName}
 
-            +h2List('http://example.com', 'Github')
-            +h2List('http://example.com', 'Blog')
-            +h2List('http://example.com', 'Qiita')
-            +h2List('http://example.com', 'Products')
-            +h2List('http://example.com', 'Career')
-            +h2List('http://example.com', 'Technical')
+            +h2List('http://example.com', 'Github', 'github')
+            +h2List('http://example.com', 'Blog', 'blog')
+            +h2List('http://example.com', 'Qiita', 'qiita')
+            +h2List('http://example.com', 'Products', 'products')
+            +h2List('http://example.com', 'Career', 'career')
+            +h2List('http://example.com', 'Technical', 'technical')
+            //li
+            //    h2
+            //        a(href='http://example.com', id='test') link
+        script(src="../../bin/app.js")

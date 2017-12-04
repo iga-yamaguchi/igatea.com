@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "wp-dev": "webpack",
+    "wp-dev-watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,5 +14,8 @@
     "pug": "^2.0.0-rc.4",
     "pug-cli": "^1.0.0-alpha6",
     "webpack": "^3.9.1"
+  },
+  "dependencies": {
+    "animejs": "^2.2.0"
   }
 }
