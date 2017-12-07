@@ -25,13 +25,11 @@ elements.forEach((element, index) => {
 
         anime({
             targets: target,
-            translateX: [
-                {
+            translateX: {
                     value: window.innerWidth/2 - leftMargin - target.offsetWidth/ 2,
                     duration: 500,
                     easing,
-                },
-            ],
+            },
             translateY: {
                 value: window.innerHeight/2 - topMargin,
                 delay: 1700,

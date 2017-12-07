@@ -8,7 +8,7 @@ html
             mixin h2List(url, linkName, id, color)
                 li
                     h2
-                        a(href=url, id=id, class='main-link', data-color=color) #{linkName}
+                        a(href=url, id=id, class='main-link', data-color=color, target='_blank') #{linkName}
 
             +h2List('https://github.com/iga-yamaguchi', 'Github', 'github', '#000')
             +h2List('http://igatea.hatenablog.com', 'Blog', 'blog', '#e8c768')
